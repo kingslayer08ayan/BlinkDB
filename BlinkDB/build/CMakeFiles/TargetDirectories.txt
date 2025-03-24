@@ -1,0 +1,3 @@
+/mnt/e/KGPSem2/Design_Lab/BlinkDB/build/CMakeFiles/BlinkDB.dir
+/mnt/e/KGPSem2/Design_Lab/BlinkDB/build/CMakeFiles/edit_cache.dir
+/mnt/e/KGPSem2/Design_Lab/BlinkDB/build/CMakeFiles/rebuild_cache.dir
