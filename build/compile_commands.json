@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/build",
+  "command": "/usr/bin/c++  -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include/stx -g -std=gnu++17 -o CMakeFiles/BlinkDB.dir/src/main.cpp.o -c /mnt/e/KGPSem2/Design_Lab/BlinkDB/src/main.cpp",
+  "file": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/src/main.cpp",
+  "output": "CMakeFiles/BlinkDB.dir/src/main.cpp.o"
+},
+{
+  "directory": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/build",
+  "command": "/usr/bin/c++  -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include/stx -g -std=gnu++17 -o CMakeFiles/BlinkDB.dir/src/Server.cpp.o -c /mnt/e/KGPSem2/Design_Lab/BlinkDB/src/Server.cpp",
+  "file": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/src/Server.cpp",
+  "output": "CMakeFiles/BlinkDB.dir/src/Server.cpp.o"
+},
+{
+  "directory": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/build",
+  "command": "/usr/bin/c++  -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include/stx -g -std=gnu++17 -o CMakeFiles/BlinkDB.dir/src/KeyValueStore.cpp.o -c /mnt/e/KGPSem2/Design_Lab/BlinkDB/src/KeyValueStore.cpp",
+  "file": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/src/KeyValueStore.cpp",
+  "output": "CMakeFiles/BlinkDB.dir/src/KeyValueStore.cpp.o"
+},
+{
+  "directory": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/build",
+  "command": "/usr/bin/c++  -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include/stx -g -std=gnu++17 -o CMakeFiles/BlinkDB.dir/src/PersistentKeyValueStore.cpp.o -c /mnt/e/KGPSem2/Design_Lab/BlinkDB/src/PersistentKeyValueStore.cpp",
+  "file": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/src/PersistentKeyValueStore.cpp",
+  "output": "CMakeFiles/BlinkDB.dir/src/PersistentKeyValueStore.cpp.o"
+},
+{
+  "directory": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/build",
+  "command": "/usr/bin/c++  -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include/stx -g -std=gnu++17 -o CMakeFiles/BlinkDB.dir/src/REPL.cpp.o -c /mnt/e/KGPSem2/Design_Lab/BlinkDB/src/REPL.cpp",
+  "file": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/src/REPL.cpp",
+  "output": "CMakeFiles/BlinkDB.dir/src/REPL.cpp.o"
+},
+{
+  "directory": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/build",
+  "command": "/usr/bin/c++  -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include -I/mnt/e/KGPSem2/Design_Lab/BlinkDB/include/stx -g -std=gnu++17 -o CMakeFiles/BlinkDB.dir/src/BloomFilter.cpp.o -c /mnt/e/KGPSem2/Design_Lab/BlinkDB/src/BloomFilter.cpp",
+  "file": "/mnt/e/KGPSem2/Design_Lab/BlinkDB/src/BloomFilter.cpp",
+  "output": "CMakeFiles/BlinkDB.dir/src/BloomFilter.cpp.o"
+}
+]

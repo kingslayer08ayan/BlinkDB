@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/BlinkDB.dir/src/main.cpp.o CMakeFiles/BlinkDB.dir/src/Server.cpp.o CMakeFiles/BlinkDB.dir/src/KeyValueStore.cpp.o CMakeFiles/BlinkDB.dir/src/PersistentKeyValueStore.cpp.o CMakeFiles/BlinkDB.dir/src/REPL.cpp.o CMakeFiles/BlinkDB.dir/src/BloomFilter.cpp.o -o BlinkDB  -lpthread 
