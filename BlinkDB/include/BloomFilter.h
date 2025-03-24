@@ -3,17 +3,18 @@
 
 #include <vector>
 #include <string>
+#include <functional>
 
 class BloomFilter {
 public:
     BloomFilter(size_t size);
     void insert(const std::string& key);
-    bool probablyContains(const std::string& key) const;
-    void remove(const std::string& key); // Optional
+    bool contains(const std::string& key) const;
 
 private:
-    size_t hash(const std::string& key, int seed) const;
-    std::vector<bool> bit_array;
+    size_t size;
+    std::vector<bool> bitArray;
+    std::hash<std::string> hashFn; // Simple hash function
 };
 
-#endif // BLOOMFILTER_H
+#endif  // BLOOMFILTER_H
