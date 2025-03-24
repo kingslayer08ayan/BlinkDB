@@ -1,42 +1,49 @@
 #include "PersistentKeyValueStore.h"
 #include <iostream>
 
-PersistentKeyValueStore::PersistentKeyValueStore(const std::string& filename) : filename(filename), wal("wal.log", std::ios::app) {
+PersistentKeyValueStore::PersistentKeyValueStore(const std::string& filename)
+    : filename(filename), wal("wal.log", std::ios::app) {
     loadFromDisk();
+
+    // ✅ Start background WAL flush thread
+    walThread = std::thread(&PersistentKeyValueStore::walWorker, this);
 }
 
 PersistentKeyValueStore::~PersistentKeyValueStore() {
-    flushToDisk();  // Ensure data is written on shutdown
+    stopWalThread = true;
+    walCondVar.notify_one();  // ✅ Wake up the WAL thread to exit
+    if (walThread.joinable()) walThread.join();
+
+    flushWAL();  // ✅ Ensure remaining WAL entries are flushed before exit
+    flushToDisk();
     wal.close();
 }
 
 void PersistentKeyValueStore::set(const std::string& key, const std::string& value) {
-    writeToWAL("SET", key, value);
+    std::lock_guard<std::mutex> lock(walMutex);
+    walBuffer.push_back("SET " + key + " " + value + "\n");
+    if (walBuffer.size() >= walThreshold) {
+        walCondVar.notify_one();  // ✅ Wake up WAL thread
+    }
     KeyValueStore::set(key, value);
 }
 
 void PersistentKeyValueStore::del(const std::string& key) {
-    writeToWAL("DEL", key);
+    std::lock_guard<std::mutex> lock(walMutex);
+    walBuffer.push_back("DEL " + key + "\n");
+    if (walBuffer.size() >= walThreshold) {
+        walCondVar.notify_one();  // ✅ Wake up WAL thread
+    }
     KeyValueStore::del(key);
 }
 
-void PersistentKeyValueStore::writeToWAL(const std::string& operation, const std::string& key, const std::string& value) {
-    wal << operation << " " << key;
-    if (!value.empty()) wal << " " << value;
-    wal << "\n";
-    wal.flush();  // ✅ Ensure write is immediately recorded
-}
-
-void PersistentKeyValueStore::flushToDisk() {
-    std::ofstream file(filename, std::ios::trunc);
-    if (!file.is_open()) {
-        std::cerr << "Error opening file: " << filename << std::endl;
-        return;
+void PersistentKeyValueStore::flushWAL() {
+    std::lock_guard<std::mutex> lock(walMutex);
+    for (const std::string& entry : walBuffer) {
+        wal << entry;
     }
-    for (const auto& pair : getStore()) {
-        file << pair.first << " " << pair.second << "\n";
-    }
-    file.close();
+    wal.flush();
+    walBuffer.clear();
 }
 
 void PersistentKeyValueStore::loadFromDisk() {
@@ -50,5 +57,31 @@ void PersistentKeyValueStore::loadFromDisk() {
     while (file >> key >> value) {
         KeyValueStore::set(key, value);
     }
+    file.close();
+}
+
+void PersistentKeyValueStore::walWorker() {
+    while (!stopWalThread) {
+        std::unique_lock<std::mutex> lock(walMutex);
+        walCondVar.wait_for(lock, std::chrono::seconds(2), [&] { return !walBuffer.empty(); });
+        if (!walBuffer.empty()) {
+            flushWAL();
+        }
+    }
+}
+void PersistentKeyValueStore::flushToDisk() {
+    std::lock_guard<std::mutex> lock(walMutex);
+
+    std::ofstream file(filename, std::ios::trunc);
+    if (!file.is_open()) {
+        std::cerr << "Error: Failed to open " << filename << " for writing." << std::endl;
+        return;
+    }
+
+    auto storeMap = getStore();
+    for (const auto& pair : storeMap) {
+        file << pair.first << " " << pair.second << "\n";
+    }
+
     file.close();
 }
