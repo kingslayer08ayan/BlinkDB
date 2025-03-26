@@ -1,0 +1,251 @@
+ayan@DESKTOP-3JNEF5K:/mnt/e/KGPSem2/Design_Lab/BlinkDB$ redis-benchmark -h 127.0.0.1 -p 6379 -n 100000 -t set,get
+====== SET ======                                                   
+  100000 requests completed in 2.62 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+  host configuration "save": 3600 1 300 100 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+Latency by percentile distribution:
+0.000% <= 0.199 milliseconds (cumulative count 2)
+50.000% <= 0.631 milliseconds (cumulative count 50365)
+75.000% <= 0.775 milliseconds (cumulative count 75223)
+87.500% <= 1.055 milliseconds (cumulative count 87803)
+93.750% <= 1.263 milliseconds (cumulative count 93782)
+96.875% <= 1.551 milliseconds (cumulative count 96923)
+98.438% <= 2.079 milliseconds (cumulative count 98443)
+99.219% <= 3.031 milliseconds (cumulative count 99226)
+99.609% <= 3.967 milliseconds (cumulative count 99610)
+99.805% <= 4.751 milliseconds (cumulative count 99805)
+99.902% <= 6.119 milliseconds (cumulative count 99903)
+99.951% <= 7.639 milliseconds (cumulative count 99952)
+99.976% <= 12.039 milliseconds (cumulative count 99976)
+99.988% <= 12.311 milliseconds (cumulative count 99988)
+99.994% <= 12.447 milliseconds (cumulative count 99994)
+99.997% <= 12.591 milliseconds (cumulative count 99997)
+99.998% <= 12.663 milliseconds (cumulative count 99999)
+99.999% <= 12.735 milliseconds (cumulative count 100000)
+100.000% <= 12.735 milliseconds (cumulative count 100000)
+
+Cumulative distribution of latencies:
+0.000% <= 0.103 milliseconds (cumulative count 0)
+0.002% <= 0.207 milliseconds (cumulative count 2)
+0.094% <= 0.303 milliseconds (cumulative count 94)
+1.846% <= 0.407 milliseconds (cumulative count 1846)
+11.581% <= 0.503 milliseconds (cumulative count 11581)
+42.189% <= 0.607 milliseconds (cumulative count 42189)
+67.384% <= 0.703 milliseconds (cumulative count 67384)
+77.368% <= 0.807 milliseconds (cumulative count 77368)
+82.202% <= 0.903 milliseconds (cumulative count 82202)
+85.865% <= 1.007 milliseconds (cumulative count 85865)
+90.089% <= 1.103 milliseconds (cumulative count 90089)
+92.713% <= 1.207 milliseconds (cumulative count 92713)
+94.439% <= 1.303 milliseconds (cumulative count 94439)
+95.803% <= 1.407 milliseconds (cumulative count 95803)
+96.641% <= 1.503 milliseconds (cumulative count 96641)
+97.230% <= 1.607 milliseconds (cumulative count 97230)
+97.645% <= 1.703 milliseconds (cumulative count 97645)
+97.933% <= 1.807 milliseconds (cumulative count 97933)
+98.141% <= 1.903 milliseconds (cumulative count 98141)
+98.321% <= 2.007 milliseconds (cumulative count 98321)
+98.482% <= 2.103 milliseconds (cumulative count 98482)
+99.272% <= 3.103 milliseconds (cumulative count 99272)
+99.652% <= 4.103 milliseconds (cumulative count 99652)
+99.836% <= 5.103 milliseconds (cumulative count 99836)
+99.902% <= 6.103 milliseconds (cumulative count 99902)
+99.930% <= 7.103 milliseconds (cumulative count 99930)
+99.968% <= 8.103 milliseconds (cumulative count 99968)
+99.970% <= 9.103 milliseconds (cumulative count 99970)
+99.978% <= 12.103 milliseconds (cumulative count 99978)
+100.000% <= 13.103 milliseconds (cumulative count 100000)
+
+Summary:
+  throughput summary: 38197.10 requests per second
+  latency summary (msec):
+          avg       min       p50       p95       p99       max
+        0.752     0.192     0.631     1.351     2.751    12.735
+====== GET ======                                                   
+  100000 requests completed in 2.96 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+  host configuration "save": 3600 1 300 100 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+Latency by percentile distribution:
+0.000% <= 0.239 milliseconds (cumulative count 1)
+50.000% <= 0.655 milliseconds (cumulative count 50381)
+75.000% <= 1.031 milliseconds (cumulative count 75906)
+87.500% <= 1.239 milliseconds (cumulative count 87598)
+93.750% <= 1.695 milliseconds (cumulative count 93771)
+96.875% <= 2.575 milliseconds (cumulative count 96884)
+98.438% <= 3.183 milliseconds (cumulative count 98451)
+99.219% <= 3.951 milliseconds (cumulative count 99222)
+99.609% <= 5.455 milliseconds (cumulative count 99610)
+99.805% <= 9.687 milliseconds (cumulative count 99807)
+99.902% <= 11.895 milliseconds (cumulative count 99904)
+99.951% <= 12.103 milliseconds (cumulative count 99952)
+99.976% <= 20.879 milliseconds (cumulative count 99977)
+99.988% <= 20.943 milliseconds (cumulative count 99988)
+99.994% <= 20.991 milliseconds (cumulative count 99995)
+99.997% <= 21.007 milliseconds (cumulative count 99997)
+99.998% <= 21.087 milliseconds (cumulative count 99999)
+99.999% <= 21.231 milliseconds (cumulative count 100000)
+100.000% <= 21.231 milliseconds (cumulative count 100000)
+
+Cumulative distribution of latencies:
+0.000% <= 0.103 milliseconds (cumulative count 0)
+0.029% <= 0.303 milliseconds (cumulative count 29)
+0.918% <= 0.407 milliseconds (cumulative count 918)
+7.616% <= 0.503 milliseconds (cumulative count 7616)
+36.052% <= 0.607 milliseconds (cumulative count 36052)
+58.520% <= 0.703 milliseconds (cumulative count 58520)
+65.450% <= 0.807 milliseconds (cumulative count 65450)
+68.872% <= 0.903 milliseconds (cumulative count 68872)
+73.357% <= 1.007 milliseconds (cumulative count 73357)
+82.723% <= 1.103 milliseconds (cumulative count 82723)
+86.677% <= 1.207 milliseconds (cumulative count 86677)
+89.089% <= 1.303 milliseconds (cumulative count 89089)
+91.319% <= 1.407 milliseconds (cumulative count 91319)
+92.441% <= 1.503 milliseconds (cumulative count 92441)
+93.249% <= 1.607 milliseconds (cumulative count 93249)
+93.810% <= 1.703 milliseconds (cumulative count 93810)
+94.248% <= 1.807 milliseconds (cumulative count 94248)
+94.647% <= 1.903 milliseconds (cumulative count 94647)
+95.180% <= 2.007 milliseconds (cumulative count 95180)
+95.583% <= 2.103 milliseconds (cumulative count 95583)
+98.284% <= 3.103 milliseconds (cumulative count 98284)
+99.320% <= 4.103 milliseconds (cumulative count 99320)
+99.505% <= 5.103 milliseconds (cumulative count 99505)
+99.675% <= 6.103 milliseconds (cumulative count 99675)
+99.769% <= 7.103 milliseconds (cumulative count 99769)
+99.790% <= 8.103 milliseconds (cumulative count 99790)
+99.802% <= 9.103 milliseconds (cumulative count 99802)
+99.817% <= 10.103 milliseconds (cumulative count 99817)
+99.854% <= 11.103 milliseconds (cumulative count 99854)
+99.952% <= 12.103 milliseconds (cumulative count 99952)
+99.966% <= 13.103 milliseconds (cumulative count 99966)
+99.969% <= 14.103 milliseconds (cumulative count 99969)
+99.970% <= 19.103 milliseconds (cumulative count 99970)
+99.999% <= 21.103 milliseconds (cumulative count 99999)
+100.000% <= 22.111 milliseconds (cumulative count 100000)
+
+Summary:
+  throughput summary: 33726.81 requests per second
+  latency summary (msec):
+          avg       min       p50       p95       p99       max
+        0.900     0.232     0.655     1.983     3.639    21.231
+
+
+
+
+🔥 Optimizations to Improve BlinkDB Performance
+🔹 1️⃣ Optimize Network I/O (Non-blocking Sockets)
+Right now, BlinkDB likely handles requests sequentially.
+✅ Fix: Use multi-threading or epoll-based event loop for concurrency.
+
+🔹 2️⃣ Improve LSM-Tree Performance
+The high GET latency suggests slow key lookups in SSTables.
+✅ Fix:
+
+Implement bloom filters properly to skip unnecessary reads.
+
+Add caching (e.g., LRU cache) for frequently accessed keys.
+
+🔹 3️⃣ Use Memory-Mapped Files for Faster Persistence
+Right now, flushToDisk() writes directly to a file.
+✅ Fix: Use mmap() or append-only logging (like AOF in Redis).
+
+🔹 4️⃣ Profile Performance with gperftools
+Run:
+
+sh
+Copy
+Edit
+sudo apt install google-perftools
+LD_PRELOAD=/usr/lib/libprofiler.so CPUPROFILE=profile.out ./BlinkDB
+pprof --text ./BlinkDB profile.out
+This will show where the bottlenecks are.
+
+🚀 Next Steps
+1️⃣ Try optimizing BlinkDB with multi-threading + caching.
+2️⃣ Run gperftools to find slow code sections.
+3️⃣ Compare BlinkDB to Redis on the same machine.
+
+BENCHMARK==redis-benchmark -h 127.0.0.1 -p 6379 -n 100000 -t set,get
+####taskset -c 0-7 ./BlinkDB for using 8 cores!!
+#### schedtool -a 0xFF -e ./BlinkDB for all cores!!
+🔥 Massive Performance Boost! 🔥
+Your SETs: 71K QPS and GETs: 70K QPS are insane speeds! 🚀🚀
+
+📌 Why Did B+ Tree Improve Performance?
+Faster Disk Access: Unlike unordered_map, B+ Trees are optimized for disk storage and bulk reads/writes.
+
+Cache Efficiency: The tree structure keeps frequently accessed data closer to the root, leading to fewer cache misses.
+
+Lower Memory Usage: B+ Trees use less RAM because they don't require huge hash tables like unordered_map.
+
+Ordered Storage: Unlike Bloom Filters, B+ Trees allow range queries and ordered traversal without scanning everything.
+
+----------------------------------------------------------------------------------------------------
+
+NEXT Level Optimize
+
+Where to Apply the Optimizations?
+🔹 Yes! You should run these optimizations in the same terminal where you're executing BlinkDB before launching BlinkDB each time.
+
+1️⃣ Disable CPU Frequency Scaling (for consistent high performance)
+Run this command before starting BlinkDB:
+
+bash
+Copy
+Edit
+echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+✅ Effect: Ensures CPU always runs at max speed instead of scaling down.
+
+2️⃣ Disable Turbo Boost (optional, for latency stability)
+Try this before starting BlinkDB:
+
+bash
+Copy
+Edit
+echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
+✅ Effect: Prevents CPU from overheating & throttling, making response times more stable.
+
+3️⃣ Enable SO_REUSEPORT for Efficient Multi-threaded Networking
+Edit Server.cpp, inside socket setup (bind() call), add this:
+
+cpp
+Copy
+Edit
+int optval = 1;
+setsockopt(server_fd, SOL_SOCKET, SO_REUSEPORT, &optval, sizeof(optval));
+✅ Effect: Allows multiple server threads to listen on the same port, reducing contention.
+
+👉 After modifying the code, recompile:
+
+bash
+Copy
+Edit
+cd /mnt/e/KGPSem2/Design_Lab/BlinkDB/build
+cmake ..
+make -j$(nproc)
+4️⃣ Try io_uring Instead of epoll (🚀 Super Experimental)
+If you're using epoll, io_uring can be faster (but needs major refactoring).
+Want to go all-in on async I/O? I can guide you through adding io_uring.
+
+How to Test if These Work?
+1️⃣ Run the optimizations in the terminal before launching BlinkDB
+2️⃣ Start BlinkDB with taskset and schedtool for best CPU affinity:
+
+bash
+Copy
+Edit
+schedtool -B -n -20 -e taskset -c 0-7 ./BlinkDB
+3️⃣ Run redis-benchmark and compare results
+
+Next Target: 🔥 85K+ req/sec
+Try these tweaks, and let’s see if we can break into the next level! 🚀
